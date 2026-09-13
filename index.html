@@ -273,7 +273,7 @@
   .section h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-top:14px;}
   .section-head{max-width:56ch;}
 
-  /* ---------- PAIN GRID ---------- */
+  /* ---------- PAIN GRID (reused for the differentiation cards) ---------- */
   .pain-grid{
     margin-top:44px;
     display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -340,12 +340,9 @@
   .format-card ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:0.88rem;display:flex;flex-direction:column;gap:6px;}
 
   /* ---------- AUTHORITY ---------- */
-  .authority-grid{
-    margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
-  }
-  .author-card{
-    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-l);
-    padding:32px;
+  .author-zone{
+    margin-top:44px;
+    display:flex;align-items:center;gap:18px;justify-content:center;
   }
   .author-avatar{
     width:72px;height:72px;border-radius:50%;
@@ -353,21 +350,8 @@
     border:2px solid var(--accent);
     flex:none;
   }
-  .author-card h3{margin-top:16px;font-family:"Archivo",sans-serif;font-size:1.2rem;font-weight:700;}
+  .author-zone h3{font-family:"Archivo",sans-serif;font-size:1.1rem;font-weight:700;}
   .author-role{color:var(--accent);font-size:0.86rem;font-weight:600;margin-top:2px;}
-  .author-card p.bio{margin-top:14px;color:var(--ink-soft);font-size:0.94rem;}
-  .credential-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
-  .credential{
-    font-family:"IBM Plex Mono",monospace;font-size:0.7rem;letter-spacing:0.03em;
-    border:1px solid var(--border);border-radius:999px;padding:6px 12px;color:var(--ink-soft);
-  }
-  .testimonial-slot{
-    border:1.5px dashed var(--border);border-radius:var(--radius-l);
-    padding:32px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;
-    color:var(--ink-soft);height:100%;
-  }
-  .testimonial-slot svg{color:var(--border);}
-  .testimonial-slot strong{color:var(--ink-soft);font-family:"Archivo",sans-serif;}
 
   /* ---------- OFFER ---------- */
   .offer-band{
@@ -446,9 +430,8 @@
   @media (max-width:860px){
     .hero-grid{grid-template-columns:1fr;}
     .hero-grid > div:last-child{order:-1;max-width:280px;margin:0 auto;}
-    .authority-grid{grid-template-columns:1fr;}
+    .author-zone{flex-direction:column;text-align:center;}
     .offer-card{grid-template-columns:1fr;}
-    .hca-strip{grid-template-columns:1fr;}
     .script-line{grid-template-columns:1fr;gap:6px;}
     .guarantee-grid{grid-template-columns:1fr;}
   }
@@ -558,7 +541,7 @@
     <div class="section-head">
       <div class="eyebrow">A estrutura por trás de cada roteiro</div>
       <h2>O método H.C.A.: Hook, Conexão e Ação</h2>
-      <p style="margin-top:14px;color:var(--ink-soft);">Todo roteiro da biblioteca segue a mesma lógica de três tempos — <strong style="color:var(--ink);">Hook</strong> prende atenção nos 3 primeiros segundos, <strong style="color:var(--ink);">Conexão</strong> valida a dor do paciente, <strong style="color:var(--ink);">Ação</strong> leva direto pro WhatsApp — testada em campanhas reais antes de entrar no material.</p>
+      <p style="margin-top:14px;color:var(--ink-soft);">Todo roteiro da biblioteca segue a mesma lógica de três tempos: <strong style="color:var(--ink);">Hook</strong> faz parar, <strong style="color:var(--ink);">Conexão</strong> faz o paciente se identificar, <strong style="color:var(--ink);">Ação</strong> mostra o próximo passo.</p>
     </div>
 
     <div class="script-card">
@@ -640,7 +623,7 @@
     </div>
 
     <div style="margin-top:44px;text-align:center;">
-      <a class="btn btn-primary" href="https://pay.kiwify.com.br/eSK1llo" target="_blank" rel="noopener">Quero acesso aos 3 formatos</a>
+      <a class="btn btn-primary" href="https://pay.kiwify.com.br/eSK1llo" target="_blank" rel="noopener">Quero os 20 Roteiros por R$ 97</a>
     </div>
   </div>
 </section>
@@ -648,28 +631,42 @@
 <section class="section section-alt" id="autoridade">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Quem criou</div>
-      <h2>Feito por quem gerencia campanha real, não só teoria.</h2>
+      <div class="eyebrow">Por que esses roteiros são diferentes</div>
+      <h2>Não são roteiros criados por IA e jogados em um PDF.</h2>
+      <p style="margin-top:14px;color:var(--ink-soft);">São estruturas desenvolvidas a partir da experiência prática com marketing e campanhas para clínicas odontológicas.</p>
     </div>
 
-    <div class="authority-grid">
-      <div class="author-card">
-        <img class="author-avatar" src="alexander-herrera-millet.jpg" alt="Alexander Herrera Millet">
+    <div class="pain-grid">
+      <div class="pain-card">
+        <span class="num">01</span>
+        <h3>Campanhas reais</h3>
+        <p>Experiência prática com campanhas e comunicação para clínicas odontológicas.</p>
+      </div>
+      <div class="pain-card">
+        <span class="num">02</span>
+        <h3>Foco em implantes</h3>
+        <p>Roteiros construídos em torno de dores, desejos, dúvidas e objeções comuns na jornada do paciente de implante.</p>
+      </div>
+      <div class="pain-card">
+        <span class="num">03</span>
+        <h3>Feito para gerar ação</h3>
+        <p>A ideia não é criar um vídeo bonito. É ajudar o dentista a transformar atenção em um próximo passo: iniciar uma conversa.</p>
+      </div>
+    </div>
+
+    <div class="author-zone">
+      <img class="author-avatar" src="alexander-herrera-millet.jpg" alt="Alexander Herrera Millet">
+      <div>
         <h3>Alexander Herrera Millet</h3>
         <div class="author-role">Estrategista de crescimento para clínicas odontológicas</div>
-        <p class="bio">Gerencia campanhas de Meta Ads e Google Ads para clínicas odontológicas reais — testando na prática, em orçamento de mídia de clientes, quais ganchos, ângulos e falas realmente geram conversa no WhatsApp. Os 20 Roteiros nasceram desse trabalho de campanha, não de um curso de oratória.</p>
-        <div class="credential-row">
-          <span class="credential">Meta Ads</span>
-          <span class="credential">Google Ads</span>
-          <span class="credential">Marketing para clínicas odontológicas</span>
-        </div>
       </div>
+    </div>
 
-      <div class="testimonial-slot">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 7h4v4c0 2-1 4-4 4"/><path d="M14 7h4v4c0 2-1 4-4 4"/></svg>
-        <strong>Espaço reservado para depoimentos de clientes</strong>
-        <span>Depoimentos reais de dentistas que usam os roteiros serão adicionados aqui em breve.</span>
-      </div>
+    <p class="agitate">"Criei estes roteiros para resolver um problema que vejo constantemente: o dentista domina o procedimento, mas nem sempre sabe transformar esse conhecimento em uma mensagem simples que faça o paciente parar, entender e dar o próximo passo."</p>
+
+    <div style="margin-top:36px;text-align:center;">
+      <p style="font-family:'Fraunces',serif;font-size:1.15rem;font-weight:500;">Você não precisa aprender copywriting.<br>Abra. Adapte. Grave.</p>
+      <a class="btn btn-primary" style="margin-top:22px;" href="https://pay.kiwify.com.br/eSK1llo" target="_blank" rel="noopener">Quero os 20 Roteiros por R$ 97</a>
     </div>
   </div>
 </section>
@@ -729,16 +726,28 @@
 
     <div class="faq-list">
       <details>
-        <summary>Nunca gravei vídeo na vida, funciona pra mim?</summary>
+        <summary>Nunca gravei um anúncio, funciona pra mim?</summary>
         <p>Sim. Os roteiros já vêm com a fala pronta, palavra por palavra — você só precisa ler, adaptar ao seu jeito de falar e gravar. Não é preciso experiência com marketing ou com câmera.</p>
       </details>
       <details>
-        <summary>Preciso decorar o roteiro?</summary>
+        <summary>Preciso saber de marketing pra usar os roteiros?</summary>
+        <p>Não. O hook, o ângulo e a chamada para ação já vêm definidos em cada roteiro — você só adapta as palavras ao seu jeito de falar.</p>
+      </details>
+      <details>
+        <summary>Os roteiros servem só pra anúncio pago?</summary>
+        <p>Não. Funcionam tanto em publicações orgânicas (Instagram, Reels) quanto como criativo de vídeo para campanhas no Meta Ads ou Google Ads.</p>
+      </details>
+      <details>
+        <summary>Como recebo o material depois de comprar?</summary>
+        <p>Assim que o pagamento é confirmado na Kiwify, você recebe o acesso ao App Online, ao App Android e ao eBook em PDF — os 20 roteiros completos, nos 3 formatos, na mesma compra.</p>
+      </details>
+      <details>
+        <summary>Preciso decorar as falas?</summary>
         <p>Não. Muitos dentistas leem o texto de tela direto do celular apoiado atrás da câmera, ou gravam em blocos curtos seguindo o Hook, a Conexão e a Ação separadamente.</p>
       </details>
       <details>
-        <summary>Funciona pra Instagram e pra Meta Ads / Google Ads?</summary>
-        <p>Sim. O conteúdo falado funciona tanto em publicações orgânicas quanto como criativo de vídeo para campanhas impulsionadas.</p>
+        <summary>Posso adaptar os roteiros pro jeito da minha clínica falar?</summary>
+        <p>Sim — essa é a ideia. Cada roteiro é um ponto de partida: você troca palavras, ajusta o tom e deixa com a sua cara antes de gravar.</p>
       </details>
     </div>
   </div>
