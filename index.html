@@ -351,7 +351,7 @@
   .author-role{color:var(--accent);font-size:0.86rem;font-weight:600;margin-top:2px;}
 
   .proof-photos{
-    margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:18px;
+    margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;
   }
   .proof-photo{
     border-radius:var(--radius-m);overflow:hidden;border:1px solid var(--border);
@@ -723,6 +723,10 @@
       <div class="proof-photo">
         <img src="provas/desk-crm.png" alt="Alexander acompanhando o funil de vendas de uma clínica parceira">
         <div class="cap">Acompanhando de perto o funil de agendamentos de uma clínica parceira.</div>
+      </div>
+      <div class="proof-photo">
+        <img src="provas/desk-crm-tabela.png" alt="Planilha do funil mostrando negociações fechadas de R$ 4.600 e R$ 6.000" style="object-fit:contain;background:#000;">
+        <div class="cap">O mesmo funil: <strong style="color:var(--accent);">R$ 10.600</strong> fechados em uma única semana.</div>
       </div>
     </div>
 
