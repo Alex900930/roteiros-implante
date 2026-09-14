@@ -8,32 +8,30 @@
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   :root{
     color-scheme: dark;
-    --bg:#0B1526;
-    --surface:#16294A;
-    --surface-alt:#0F1D33;
-    --ink:#F2EFE6;
-    --ink-soft:#AFBAD1;
-    --border:#2A3E60;
-    --accent:#D8B65C;
-    --accent-soft:#2A2413;
+    --bg:#0A0A0C;
+    --bg-alt:#131316;
+    --surface:#1C1C20;
+    --surface-2:#242428;
+    --ink:#F5F3EE;
+    --ink-soft:#A3A3AA;
+    --border:#2E2E33;
 
-    --navy:#0E1B33;
-    --navy-deep:#081221;
-    --gold:#C9A227;
-    --gold-soft:#E7CE84;
-    --on-navy:#F4F1E6;
-    --on-navy-soft:#B9C2D6;
-    --on-navy-border:#2B3A57;
+    --accent:#FF8A24;
+    --accent-bright:#FFB13F;
+    --accent-deep:#D96A0F;
+    --accent-soft:#2B2011;
+    --on-accent:#1A0F03;
 
     --frio:#5FA0DA;
     --morno:#DFA857;
     --quente:#DC7259;
 
-    --shadow: 0 20px 50px -20px rgba(0,0,0,0.55);
+    --shadow: 0 20px 50px -20px rgba(0,0,0,0.65);
+    --glow: 0 0 46px rgba(255,138,36,0.38);
     --radius-s: 10px;
     --radius-m: 16px;
     --radius-l: 26px;
@@ -49,18 +47,19 @@
     line-height:1.5;
   }
   h1,h2,h3{
-    font-family:"Fraunces",Georgia,"Times New Roman",serif;
-    font-weight:600;
-    line-height:1.08;
+    font-family:"Archivo",system-ui,sans-serif;
+    font-weight:800;
+    line-height:1.1;
     text-wrap:balance;
     margin:0;
-    color:inherit;
+    color:var(--ink);
+    letter-spacing:-0.01em;
   }
   p{margin:0;}
   a{color:inherit;}
   img{display:block;max-width:100%;}
-  ::selection{background:var(--gold-soft);color:var(--navy-deep);}
-  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  ::selection{background:var(--accent);color:var(--on-accent);}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
   .mono{
     font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -80,21 +79,19 @@
   .eyebrow::before{
     content:"";
     width:7px;height:7px;border-radius:50%;
-    background:var(--gold);
+    background:var(--accent);
     flex:none;
   }
-  .eyebrow.on-navy{color:var(--gold-soft);}
 
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
-  .prose{max-width:62ch;}
   section{position:relative;}
 
   /* ---------- NAV ---------- */
   header.nav{
     position:sticky;top:0;z-index:40;
-    background:color-mix(in srgb, var(--navy-deep) 92%, transparent);
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
     backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--on-navy-border);
+    border-bottom:1px solid var(--border);
   }
   .nav-inner{
     max-width:1120px;margin:0 auto;padding:14px 24px;
@@ -102,7 +99,7 @@
   }
   .brand{
     display:flex;align-items:center;gap:10px;
-    color:var(--on-navy);
+    color:var(--ink);
     font-family:"IBM Plex Mono",monospace;
     font-size:0.74rem;
     letter-spacing:0.04em;
@@ -114,42 +111,40 @@
   .footer-logo{width:20px;height:20px;border-radius:5px;flex:none;}
   .app-badge{
     display:flex;align-items:center;justify-content:center;gap:10px;
-    margin-bottom:16px;color:var(--on-navy-soft);font-size:0.82rem;
+    margin-bottom:16px;color:var(--ink-soft);font-size:0.82rem;
   }
   .app-badge img{width:32px;height:32px;border-radius:9px;flex:none;}
-  .app-badge strong{color:var(--on-navy);font-family:"Archivo",sans-serif;font-weight:700;}
+  .app-badge strong{color:var(--ink);font-family:"Archivo",sans-serif;font-weight:700;}
   .nav-cta{
     font-family:"Archivo",sans-serif;
-    font-weight:700;
+    font-weight:800;
     font-size:0.86rem;
-    color:var(--navy-deep);
-    background:var(--gold);
+    color:var(--on-accent);
+    background:linear-gradient(135deg, var(--accent-bright), var(--accent));
     padding:10px 18px;
     border-radius:999px;
     white-space:nowrap;
     text-decoration:none;
-    transition:transform 0.15s ease, background 0.15s ease;
+    box-shadow:0 10px 26px -10px rgba(255,138,36,0.55);
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .nav-cta:hover{background:var(--gold-soft);transform:translateY(-1px);}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 14px 32px -8px rgba(255,138,36,0.7);}
 
   /* ---------- BUTTONS ---------- */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:10px;
-    font-family:"Archivo",sans-serif;font-weight:700;font-size:1rem;
+    font-family:"Archivo",sans-serif;font-weight:800;font-size:1rem;
     padding:16px 30px;border-radius:999px;text-decoration:none;
     transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     border:1px solid transparent;
     cursor:pointer;
   }
   .btn-primary{
-    background:var(--gold);color:var(--navy-deep);
-    box-shadow:0 14px 30px -12px rgba(201,162,39,0.55);
+    background:linear-gradient(135deg, var(--accent-bright), var(--accent));
+    color:var(--on-accent);
+    box-shadow:var(--glow);
   }
-  .btn-primary:hover{background:var(--gold-soft);transform:translateY(-2px);}
-  .btn-ghost-navy{
-    background:transparent;color:var(--on-navy);border-color:var(--on-navy-border);
-  }
-  .btn-ghost-navy:hover{border-color:var(--gold);color:var(--gold-soft);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 60px rgba(255,138,36,0.5);}
   .btn-ghost{
     background:transparent;color:var(--ink);border-color:var(--border);
   }
@@ -163,21 +158,21 @@
   /* ---------- HERO ---------- */
   .hero{
     background:
-      radial-gradient(ellipse 900px 480px at 82% -10%, color-mix(in srgb, var(--gold) 18%, transparent), transparent 60%),
-      var(--navy);
-    color:var(--on-navy);
+      radial-gradient(ellipse 900px 480px at 82% -10%, rgba(255,138,36,0.16), transparent 60%),
+      var(--bg);
     padding:64px 0 84px;
-    border-bottom:1px solid var(--on-navy-border);
+    border-bottom:1px solid var(--border);
   }
   .hero-grid{
     display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;
   }
-  .hero h1{font-size:clamp(2.1rem,4.2vw,3.4rem);color:var(--on-navy);}
+  .hero h1{font-size:clamp(2.1rem,4.2vw,3.4rem);}
   .hero .lede{
-    margin-top:22px;font-size:1.08rem;color:var(--on-navy-soft);max-width:52ch;
+    margin-top:22px;font-size:1.08rem;color:var(--ink-soft);max-width:52ch;
   }
+  .hero .lede strong{color:var(--ink);}
   .hero-actions{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:18px;}
-  .hero .cta-note{color:var(--on-navy-soft);}
+  .hero .cta-note{color:var(--ink-soft);}
   .rec{
     display:inline-flex;align-items:center;gap:7px;
     color:#E8A090;font-size:0.72rem;
@@ -192,8 +187,8 @@
   /* ---------- PHONE MOCKUP ---------- */
   .phone{
     width:100%;max-width:300px;margin:0 auto;
-    background:var(--navy-deep);
-    border:1px solid var(--on-navy-border);
+    background:var(--surface);
+    border:1px solid var(--border);
     border-radius:34px;
     padding:14px;
     box-shadow:var(--shadow);
@@ -256,25 +251,25 @@
     background:none;border:none;padding:4px;cursor:pointer;color:var(--app-border);
     display:flex;
   }
-  .star-btn[data-fav="true"]{color:var(--gold);}
+  .star-btn[data-fav="true"]{color:var(--accent);}
   .shuffle-btn{
     margin-top:14px;width:100%;
-    background:var(--navy);color:var(--on-navy);
+    background:var(--app-ink);color:#fff;
     border:none;border-radius:10px;
     padding:11px;font-family:"Archivo",sans-serif;font-weight:700;font-size:0.8rem;
     display:flex;align-items:center;justify-content:center;gap:8px;
     cursor:pointer;
   }
-  .shuffle-btn:hover{background:var(--navy-deep);}
+  .shuffle-btn:hover{background:#000;}
 
   /* ---------- GENERIC SECTION ---------- */
   .section{padding:88px 0;}
-  .section-alt{background:var(--surface-alt);}
+  .section-alt{background:var(--bg-alt);}
   .section h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-top:14px;}
   .section-head{max-width:56ch;margin-left:auto;margin-right:auto;text-align:center;}
   .section-head .eyebrow{justify-content:center;}
 
-  /* ---------- PAIN GRID (reused for the differentiation cards) ---------- */
+  /* ---------- CARD GRID (pain / diferenciais) ---------- */
   .pain-grid{
     margin-top:44px;
     display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -294,30 +289,31 @@
   .pain-card p{color:var(--ink-soft);font-size:0.92rem;}
   .agitate{
     margin-top:40px;padding:26px 28px;border-radius:var(--radius-m);
-    background:var(--navy);color:var(--on-navy);
-    font-family:"Fraunces",serif;font-size:1.2rem;font-weight:500;
-    text-wrap:balance;
+    background:var(--surface-2);color:var(--ink);
+    font-family:"Archivo",sans-serif;font-size:1.2rem;font-weight:600;
+    text-wrap:balance;border:1px solid var(--border);
   }
-  .agitate strong{color:var(--gold-soft);}
+  .agitate strong{color:var(--accent);}
 
   .script-card{
-    margin-top:40px;background:var(--navy);color:var(--on-navy);
+    margin-top:40px;background:var(--surface);color:var(--ink);
+    border:1px solid var(--border);
     border-radius:var(--radius-l);padding:36px;
     box-shadow:var(--shadow);
   }
   .script-head{
     display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
-    border-bottom:1px solid var(--on-navy-border);padding-bottom:16px;margin-bottom:20px;
+    border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:20px;
   }
-  .script-head .mono{color:var(--on-navy-soft);font-size:0.72rem;}
+  .script-head .mono{color:var(--ink-soft);font-size:0.72rem;}
   .script-line{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:14px 0;}
-  .script-line + .script-line{border-top:1px solid var(--on-navy-border);}
+  .script-line + .script-line{border-top:1px solid var(--border);}
   .script-line .beat{
     font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;
-    color:var(--gold-soft);
+    color:var(--accent);
   }
-  .script-line .tc{display:block;color:var(--on-navy-soft);margin-top:4px;font-size:0.68rem;}
-  .script-line .fala{font-family:"Fraunces",serif;font-size:1.08rem;font-weight:500;line-height:1.45;}
+  .script-line .tc{display:block;color:var(--ink-soft);margin-top:4px;font-size:0.68rem;}
+  .script-line .fala{font-family:"Archivo",sans-serif;font-size:1.06rem;font-weight:600;line-height:1.45;}
   .whatsapp-pill{
     margin-top:22px;display:inline-flex;align-items:center;gap:10px;
     background:#153327;border:1px solid #2C5B44;color:#B9E7CC;
@@ -354,32 +350,81 @@
   .author-zone h3{font-family:"Archivo",sans-serif;font-size:1.1rem;font-weight:700;}
   .author-role{color:var(--accent);font-size:0.86rem;font-weight:600;margin-top:2px;}
 
+  .proof-photos{
+    margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  }
+  .proof-photo{
+    border-radius:var(--radius-m);overflow:hidden;border:1px solid var(--border);
+    background:var(--surface);
+  }
+  .proof-photo img{width:100%;height:280px;object-fit:cover;}
+  .proof-photo .cap{
+    padding:12px 16px;font-size:0.82rem;color:var(--ink-soft);
+    border-top:1px solid var(--border);
+  }
+
+  .portfolio-block{
+    margin-top:36px;border-radius:var(--radius-l);overflow:hidden;
+    border:1px solid var(--border);background:var(--surface);
+  }
+  .portfolio-block img{width:100%;display:block;}
+  .portfolio-block .cap{
+    padding:18px 22px;font-size:0.9rem;color:var(--ink-soft);
+    border-top:1px solid var(--border);
+  }
+  .portfolio-block .cap strong{color:var(--ink);}
+
+  /* ---------- PROVA SOCIAL ---------- */
+  .review-grid{
+    margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  }
+  .review-card{
+    border-radius:var(--radius-m);overflow:hidden;border:1px solid var(--border);
+    background:#fff;
+  }
+  .review-card img{width:100%;display:block;}
+
+  .proof-strip{
+    margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;
+  }
+  .proof-tile{
+    border-radius:var(--radius-m);overflow:hidden;border:1px solid var(--border);
+    background:var(--surface);
+  }
+  .proof-tile img{width:100%;max-height:360px;object-fit:cover;display:block;background:#111;}
+  .proof-tile .cap{
+    padding:14px 16px;font-size:0.86rem;color:var(--ink-soft);
+    border-top:1px solid var(--border);
+  }
+  .proof-tile .cap strong{color:var(--accent);}
+
   /* ---------- OFFER ---------- */
   .offer-band{
-    background:var(--navy);color:var(--on-navy);
-    border-top:1px solid var(--on-navy-border);
-    border-bottom:1px solid var(--on-navy-border);
+    background:var(--bg-alt);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
   }
   .offer-card{
-    margin-top:44px;background:var(--navy-deep);
-    border:1px solid var(--on-navy-border);border-radius:var(--radius-l);
+    margin-top:44px;background:var(--surface);
+    border:1px solid var(--border);border-radius:var(--radius-l);
     padding:44px;box-shadow:var(--shadow);
     display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;
   }
   .offer-list{display:flex;flex-direction:column;gap:14px;margin-top:20px;}
-  .offer-list li{list-style:none;display:flex;gap:12px;align-items:flex-start;color:var(--on-navy-soft);font-size:0.95rem;}
-  .offer-list svg{flex:none;color:var(--gold);margin-top:3px;}
+  .offer-list li{list-style:none;display:flex;gap:12px;align-items:flex-start;color:var(--ink-soft);font-size:0.95rem;}
+  .offer-list svg{flex:none;color:var(--accent);margin-top:3px;}
   .offer-price-box{
-    background:var(--navy);border:1px solid var(--on-navy-border);border-radius:var(--radius-m);
-    padding:30px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;
+    background:var(--surface-2);border:1px solid var(--accent);border-radius:var(--radius-m);
+    padding:30px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;
+    box-shadow:var(--glow);
   }
-  .offer-price-box .was{color:var(--on-navy-soft);text-decoration:line-through;font-size:0.9rem;}
+  .offer-price-box .was{color:var(--ink-soft);text-decoration:line-through;font-size:1rem;}
   .price{
-    font-family:"Fraunces",serif;font-weight:600;font-size:3rem;color:var(--on-navy);
+    font-family:"Archivo",sans-serif;font-weight:900;font-size:3rem;color:var(--ink);
     font-variant-numeric:tabular-nums;
   }
   .price sup{font-size:1.2rem;top:-1.2em;}
-  .offer-price-box .cta-note{color:var(--on-navy-soft);}
+  .offer-price-box .cta-note{color:var(--ink-soft);}
 
   /* ---------- GUARANTEE ---------- */
   .guarantee-grid{
@@ -414,17 +459,18 @@
   /* ---------- FINAL CTA ---------- */
   .final-cta{
     background:
-      radial-gradient(ellipse 800px 400px at 20% 0%, color-mix(in srgb, var(--gold) 16%, transparent), transparent 60%),
-      var(--navy);
-    color:var(--on-navy);text-align:center;padding:96px 0;
+      radial-gradient(ellipse 800px 400px at 20% 0%, rgba(255,138,36,0.14), transparent 60%),
+      var(--bg);
+    text-align:center;padding:96px 0;
   }
-  .final-cta h2{color:var(--on-navy);font-size:clamp(1.8rem,3.6vw,2.6rem);}
-  .final-cta .lede{color:var(--on-navy-soft);margin:16px auto 0;max-width:52ch;}
+  .final-cta h2{font-size:clamp(1.8rem,3.6vw,2.6rem);}
+  .final-cta .lede{color:var(--ink-soft);margin:16px auto 0;max-width:52ch;}
   .final-cta .hero-actions{justify-content:center;margin-top:32px;}
 
   footer{
-    background:var(--navy-deep);color:var(--on-navy-soft);
+    background:var(--bg-alt);color:var(--ink-soft);
     padding:36px 0;font-size:0.82rem;
+    border-top:1px solid var(--border);
   }
   .footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center;}
 
@@ -434,6 +480,8 @@
     .offer-card{grid-template-columns:1fr;}
     .script-line{grid-template-columns:1fr;gap:6px;}
     .guarantee-grid{grid-template-columns:1fr;}
+    .proof-photos{grid-template-columns:1fr;}
+    .review-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -449,7 +497,7 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow on-navy">Roteiros para anúncio de implante</div>
+      <div class="eyebrow">Roteiros para anúncio de implante</div>
       <h1>Chega de travar na frente da câmera.</h1>
       <p class="lede">Você sabe conduzir um implante com as duas mãos. Na hora de gravar um anúncio de 30 segundos, trava. Os <strong>20 Roteiros Prontos</strong> te dão a fala, o gancho e a chamada para ação — você escolhe a dor do paciente, adapta ao seu jeito de falar e grava ainda hoje.</p>
       <div class="hero-actions">
@@ -654,6 +702,11 @@
       </div>
     </div>
 
+    <div class="portfolio-block">
+      <img src="provas/portfolio-site-guilherme.jpg" alt="Site desenvolvido para a Clínica Dr. Guilherme Aguiar, com implantes e próteses em destaque">
+      <div class="cap"><strong>Site desenvolvido para a Clínica Dr. Guilherme Aguiar</strong> — um dos parceiros que aplica essas mesmas estratégias de comunicação no dia a dia.</div>
+    </div>
+
     <div class="author-zone">
       <img class="author-avatar" src="alexander-herrera-millet.jpg" alt="Alexander Herrera Millet">
       <div>
@@ -662,11 +715,56 @@
       </div>
     </div>
 
-    <p class="agitate" style="text-align:center;">"Criei estes roteiros para resolver um problema que vejo constantemente: o dentista domina o procedimento, mas nem sempre sabe transformar esse conhecimento em uma mensagem simples que faça o paciente parar, entender e dar o próximo passo."</p>
+    <div class="proof-photos">
+      <div class="proof-photo">
+        <img src="provas/selfie-tiago.jpg" alt="Alexander Herrera Millet com o Dr. Tiago Rêgo">
+        <div class="cap">Com o Dr. Tiago Rêgo, cliente e parceiro de campanhas.</div>
+      </div>
+      <div class="proof-photo">
+        <img src="provas/desk-crm.png" alt="Alexander acompanhando o funil de vendas de uma clínica parceira">
+        <div class="cap">Acompanhando de perto o funil de agendamentos de uma clínica parceira.</div>
+      </div>
+    </div>
+
+    <p class="agitate" style="text-align:center;margin-top:36px;">"Criei estes roteiros para resolver um problema que vejo constantemente: o dentista domina o procedimento, mas nem sempre sabe transformar esse conhecimento em uma mensagem simples que faça o paciente parar, entender e dar o próximo passo."</p>
 
     <div style="margin-top:36px;text-align:center;">
-      <p style="font-family:'Fraunces',serif;font-size:1.15rem;font-weight:500;">Você não precisa aprender copywriting.<br>Abra. Adapte. Grave.</p>
+      <p style="font-family:'Archivo',sans-serif;font-size:1.15rem;font-weight:700;">Você não precisa aprender copywriting.<br>Abra. Adapte. Grave.</p>
       <a class="btn btn-primary" style="margin-top:22px;" href="https://pay.kiwify.com.br/eSK1llo" target="_blank" rel="noopener">Quero os 20 Roteiros por R$ 97</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="prova">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Prova social</div>
+      <h2>O que acontece quando o anúncio certo encontra o paciente certo.</h2>
+      <p style="margin-top:14px;color:var(--ink-soft);">Resultados reais de clínicas que já trabalham com Alexander Herrera Millet.</p>
+    </div>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <img src="provas/review-guilherme.png" alt="Avaliação de 5 estrelas de Guilherme Aguiar no Google">
+      </div>
+      <div class="review-card">
+        <img src="provas/review-tiago.png" alt="Avaliação de 5 estrelas de Tiago Rêgo no Google">
+      </div>
+    </div>
+
+    <div class="proof-strip">
+      <div class="proof-tile">
+        <img src="provas/whatsapp-orcamento.jpg" alt="WhatsApp mostrando orçamento de R$ 7.650 fechado com paciente vindo de anúncio no Facebook">
+        <div class="cap"><strong>R$ 7.650</strong> em orçamento fechado com paciente que chegou pelo anúncio no Facebook.</div>
+      </div>
+      <div class="proof-tile">
+        <img src="provas/whatsapp-protese-pago.png" alt="WhatsApp confirmando pagamento de prótese de R$ 3.200">
+        <div class="cap"><strong>R$ 3.200</strong> de prótese paga no mesmo dia.</div>
+      </div>
+      <div class="proof-tile">
+        <img src="provas/whatsapp-lead-instagram.png" alt="WhatsApp mostrando lead do Instagram agendado no mesmo dia">
+        <div class="cap">Lead do <strong>Instagram</strong> agendado no mesmo dia pra iniciar o protocolo.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -674,13 +772,13 @@
 <section class="section offer-band" id="oferta">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow on-navy">A oferta</div>
+      <div class="eyebrow">A oferta</div>
       <h2>20 Roteiros Prontos para Anúncios de Implante</h2>
     </div>
 
     <div class="offer-card">
       <div>
-        <p style="color:var(--on-navy-soft);max-width:48ch;">Tudo o que você precisa pra sair da tela em branco e começar a gravar anúncios de captação de implante hoje mesmo.</p>
+        <p style="color:var(--ink-soft);max-width:48ch;">Tudo o que você precisa pra sair da tela em branco e começar a gravar anúncios de captação de implante hoje mesmo.</p>
         <ul class="offer-list">
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>20 roteiros prontos na estrutura Hook, Conexão e Ação</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Hooks alternativos e ângulo de comunicação em cada roteiro</li>
@@ -692,6 +790,7 @@
 
       <div class="offer-price-box">
         <span class="cta-note">Pagamento único</span>
+        <div class="was">De R$ 167</div>
         <div class="price"><sup>R$</sup>97</div>
         <span class="cta-note">Acesso vitalício · 3 formatos inclusos</span>
         <a class="btn btn-primary btn-block" href="https://pay.kiwify.com.br/eSK1llo" target="_blank" rel="noopener" style="margin-top:10px;">Quero meus 20 roteiros agora</a>
@@ -755,13 +854,13 @@
 
 <section class="final-cta" id="checkout">
   <div class="wrap">
-    <div class="eyebrow on-navy" style="justify-content:center;">Método Andrômeda</div>
+    <div class="eyebrow" style="justify-content:center;">Método Andrômeda</div>
     <h2 style="margin-top:14px;">Sua próxima gravação pode ser hoje.</h2>
     <p class="lede">Escolha a dor que mais ouve na sua clínica, abra o roteiro correspondente e grave ainda hoje — sem tela em branco.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="https://pay.kiwify.com.br/eSK1llo" target="_blank" rel="noopener">Quero os 20 Roteiros por R$ 97</a>
     </div>
-    <p class="cta-note" style="margin-top:16px;color:var(--on-navy-soft);">Pagamento único · acesso vitalício · garantia de 7 dias</p>
+    <p class="cta-note" style="margin-top:16px;color:var(--ink-soft);">Pagamento único · acesso vitalício · garantia de 7 dias</p>
   </div>
 </section>
 
