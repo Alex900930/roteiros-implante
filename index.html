@@ -350,9 +350,6 @@
   .author-zone h3{font-family:"Archivo",sans-serif;font-size:1.1rem;font-weight:700;}
   .author-role{color:var(--accent);font-size:0.86rem;font-weight:600;margin-top:2px;}
 
-  .proof-photos{
-    margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;
-  }
   .proof-photo{
     border-radius:var(--radius-m);overflow:hidden;border:1px solid var(--border);
     background:var(--surface);
@@ -363,40 +360,22 @@
     border-top:1px solid var(--border);
   }
 
-  .portfolio-block{
-    margin-top:36px;border-radius:var(--radius-l);overflow:hidden;
-    border:1px solid var(--border);background:var(--surface);
-  }
-  .portfolio-block img{width:100%;display:block;}
-  .portfolio-block .cap{
-    padding:18px 22px;font-size:0.9rem;color:var(--ink-soft);
-    border-top:1px solid var(--border);
-  }
-  .portfolio-block .cap strong{color:var(--ink);}
-
   /* ---------- PROVA SOCIAL ---------- */
-  .review-grid{
-    margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  .proof-narrative{
+    margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;
   }
-  .review-card{
-    border-radius:var(--radius-m);overflow:hidden;border:1px solid var(--border);
-    background:#fff;
+  .proof-block{display:flex;flex-direction:column;gap:12px;}
+  .proof-tag{
+    font-family:"IBM Plex Mono",monospace;font-size:0.7rem;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--accent);
   }
-  .review-card img{width:100%;display:block;}
-
-  .proof-strip{
-    margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;
-  }
-  .proof-tile{
+  .proof-media{
     border-radius:var(--radius-m);overflow:hidden;border:1px solid var(--border);
     background:var(--surface);
   }
-  .proof-tile img{width:100%;max-height:360px;object-fit:cover;display:block;background:#111;}
-  .proof-tile .cap{
-    padding:14px 16px;font-size:0.86rem;color:var(--ink-soft);
-    border-top:1px solid var(--border);
-  }
-  .proof-tile .cap strong{color:var(--accent);}
+  .proof-media img{width:100%;height:auto;display:block;}
+  .proof-media-white{background:#fff;}
+  .proof-cap{font-size:0.88rem;color:var(--ink-soft);}
 
   /* ---------- OFFER ---------- */
   .offer-band{
@@ -480,8 +459,7 @@
     .offer-card{grid-template-columns:1fr;}
     .script-line{grid-template-columns:1fr;gap:6px;}
     .guarantee-grid{grid-template-columns:1fr;}
-    .proof-photos{grid-template-columns:1fr;}
-    .review-grid{grid-template-columns:1fr;}
+    .proof-narrative{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -499,7 +477,7 @@
     <div>
       <div class="eyebrow">Roteiros para anúncio de implante</div>
       <h1>Chega de travar na frente da câmera.</h1>
-      <p class="lede">Você sabe conduzir um implante com as duas mãos. Na hora de gravar um anúncio de 30 segundos, trava. Os <strong>20 Roteiros Prontos</strong> te dão a fala, o gancho e a chamada para ação — você escolhe a dor do paciente, adapta ao seu jeito de falar e grava ainda hoje.</p>
+      <p class="lede">Você sabe fazer implante. O problema é saber o que dizer na câmera. Escolha a dor do paciente, abra um dos <strong>20 Roteiros Prontos</strong>, adapte ao seu jeito e grave — Hook, Conexão e Ação já vêm estruturados.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://pay.kiwify.com.br/eSK1llo" target="_blank" rel="noopener">Quero os 20 Roteiros por R$ 97</a>
         <span class="rec"><span class="rec-dot"></span>gravando em 3, 2, 1…</span>
@@ -559,7 +537,7 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">O que trava você hoje</div>
-      <h2>Se você se reconhece em um desses, o problema não é você — é a falta de um roteiro.</h2>
+      <h2>Se alguma dessas situações acontece na sua clínica, provavelmente falta uma estrutura clara para gravar.</h2>
     </div>
 
     <div class="pain-grid">
@@ -624,7 +602,7 @@
 <section class="section" id="formatos">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Três formatos, uma compra</div>
+      <div class="eyebrow">Uma compra · três formas de acessar</div>
       <h2>Use como for melhor pra sua rotina.</h2>
     </div>
 
@@ -645,7 +623,7 @@
 
       <div class="format-card">
         <div class="format-icon" style="background:none;padding:0;">
-          <img src="logo.png" alt="Ícone do app para Android" width="46" height="46" style="border-radius:12px;">
+          <img src="logo.png" alt="Ícone do app para Android" width="46" height="46" style="border-radius:12px;" loading="lazy">
         </div>
         <h3>App para Android</h3>
         <p>Mesma experiência do App Online, instalável no seu celular como qualquer outro aplicativo.</p>
@@ -702,32 +680,17 @@
       </div>
     </div>
 
-    <div class="portfolio-block">
-      <img src="provas/portfolio-site-guilherme.jpg" alt="Site desenvolvido para a Clínica Dr. Guilherme Aguiar, com implantes e próteses em destaque">
-      <div class="cap"><strong>Site desenvolvido para a Clínica Dr. Guilherme Aguiar</strong> — um dos parceiros que aplica essas mesmas estratégias de comunicação no dia a dia.</div>
-    </div>
-
     <div class="author-zone">
-      <img class="author-avatar" src="alexander-herrera-millet.jpg" alt="Alexander Herrera Millet">
+      <img class="author-avatar" src="alexander-herrera-millet.jpg" alt="Alexander Herrera Millet" loading="lazy">
       <div>
         <h3>Alexander Herrera Millet</h3>
         <div class="author-role">Estrategista de crescimento para clínicas odontológicas</div>
       </div>
     </div>
 
-    <div class="proof-photos">
-      <div class="proof-photo">
-        <img src="provas/selfie-tiago.jpg" alt="Alexander Herrera Millet com o Dr. Tiago Rêgo">
-        <div class="cap">Com o Dr. Tiago Rêgo, cliente e parceiro de campanhas.</div>
-      </div>
-      <div class="proof-photo">
-        <img src="provas/desk-crm.png" alt="Alexander acompanhando o funil de vendas de uma clínica parceira">
-        <div class="cap">Acompanhando de perto o funil de agendamentos de uma clínica parceira.</div>
-      </div>
-      <div class="proof-photo">
-        <img src="provas/desk-crm-tabela.png" alt="Planilha do funil mostrando negociações fechadas de R$ 4.600 e R$ 6.000" style="object-fit:contain;background:#000;">
-        <div class="cap">O mesmo funil: <strong style="color:var(--accent);">R$ 10.600</strong> fechados em uma única semana.</div>
-      </div>
+    <div class="proof-photo" style="max-width:420px;margin:32px auto 0;">
+      <img src="provas/selfie-tiago.jpg" alt="Alexander Herrera Millet com o Dr. Tiago Rêgo" loading="lazy">
+      <div class="cap">Com o Dr. Tiago Rêgo, cliente e parceiro de campanhas.</div>
     </div>
 
     <p class="agitate" style="text-align:center;margin-top:36px;">"Criei estes roteiros para resolver um problema que vejo constantemente: o dentista domina o procedimento, mas nem sempre sabe transformar esse conhecimento em uma mensagem simples que faça o paciente parar, entender e dar o próximo passo."</p>
@@ -743,31 +706,31 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Prova social</div>
-      <h2>O que acontece quando o anúncio certo encontra o paciente certo.</h2>
-      <p style="margin-top:14px;color:var(--ink-soft);">Resultados reais de clínicas que já trabalham com Alexander Herrera Millet.</p>
+      <h2>Marketing odontológico na prática.</h2>
+      <p style="margin-top:14px;color:var(--ink-soft);">Alguns registros do trabalho com clínicas parceiras.</p>
     </div>
 
-    <div class="review-grid">
-      <div class="review-card">
-        <img src="provas/review-guilherme.png" alt="Avaliação de 5 estrelas de Guilherme Aguiar no Google">
+    <div class="proof-narrative">
+      <div class="proof-block">
+        <span class="proof-tag">Prova 01 · Trabalho real</span>
+        <div class="proof-media">
+          <img src="provas/portfolio-site-guilherme.jpg" alt="Site desenvolvido para a Clínica Dr. Guilherme Aguiar, com implantes e próteses em destaque" loading="lazy">
+        </div>
+        <p class="proof-cap">Site desenvolvido para a Clínica Dr. Guilherme Aguiar.</p>
       </div>
-      <div class="review-card">
-        <img src="provas/review-tiago.png" alt="Avaliação de 5 estrelas de Tiago Rêgo no Google">
+      <div class="proof-block">
+        <span class="proof-tag">Prova 02 · Geração de demanda</span>
+        <div class="proof-media">
+          <img src="provas/whatsapp-lead-instagram.png" alt="WhatsApp mostrando lead do Instagram agendado no mesmo dia" loading="lazy">
+        </div>
+        <p class="proof-cap">Lead do Instagram agendado no mesmo dia para iniciar o protocolo.</p>
       </div>
-    </div>
-
-    <div class="proof-strip">
-      <div class="proof-tile">
-        <img src="provas/whatsapp-orcamento.jpg" alt="WhatsApp mostrando orçamento de R$ 7.650 fechado com paciente vindo de anúncio no Facebook">
-        <div class="cap"><strong>R$ 7.650</strong> em orçamento fechado com paciente que chegou pelo anúncio no Facebook.</div>
-      </div>
-      <div class="proof-tile">
-        <img src="provas/whatsapp-protese-pago.png" alt="WhatsApp confirmando pagamento de prótese de R$ 3.200">
-        <div class="cap"><strong>R$ 3.200</strong> de prótese paga no mesmo dia.</div>
-      </div>
-      <div class="proof-tile">
-        <img src="provas/whatsapp-lead-instagram.png" alt="WhatsApp mostrando lead do Instagram agendado no mesmo dia">
-        <div class="cap">Lead do <strong>Instagram</strong> agendado no mesmo dia pra iniciar o protocolo.</div>
+      <div class="proof-block">
+        <span class="proof-tag">Prova 03 · Impacto comercial</span>
+        <div class="proof-media proof-media-white">
+          <img src="provas/review-guilherme.png" alt="Avaliação de 5 estrelas de Guilherme Aguiar no Google" loading="lazy">
+        </div>
+        <p class="proof-cap">Resultado registrado na operação de tráfego pago de uma clínica parceira — não é uma promessa deste produto.</p>
       </div>
     </div>
   </div>
@@ -798,7 +761,7 @@
         <div class="price"><sup>R$</sup>97</div>
         <span class="cta-note">Acesso vitalício · 3 formatos inclusos</span>
         <a class="btn btn-primary btn-block" href="https://pay.kiwify.com.br/eSK1llo" target="_blank" rel="noopener" style="margin-top:10px;">Quero meus 20 roteiros agora</a>
-        <span class="cta-note">Compra processada com segurança pela Kiwify</span>
+        <span class="cta-note">Garantia de 7 dias · compra processada com segurança pela Kiwify</span>
       </div>
     </div>
   </div>
@@ -870,7 +833,7 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <span style="display:flex;align-items:center;gap:8px;"><img class="footer-logo" src="logo.png" alt="">Método Andrômeda © 2026. Todos os direitos reservados.</span>
+    <span style="display:flex;align-items:center;gap:8px;"><img class="footer-logo" src="logo.png" alt="" loading="lazy">Método Andrômeda © 2026. Todos os direitos reservados.</span>
     <span>Produto digital comercializado via Kiwify.</span>
   </div>
 </footer>
